@@ -261,7 +261,7 @@
             botName: 'justbot',
             language: 'english',
             chatLink: 'https://rawgit.com/basicBot/source/master/lang/en.json',
-            scriptLink: 'https://rawgit.com/JusJustMe/Justbot-/master/basicBot.js',
+            scriptLink: 'https://rawgit.com/JusJustMe/Justbot/master/basicBot.js',
             roomLock: false, // Requires an extension to re-load the script
             startupCap: 1, // 1-200
             startupVolume: 0, // 0-100
@@ -325,9 +325,9 @@
             songstats: false,
             commandLiteral: '!',
             blacklists: {
-                NSFW: 'https://rawgit.com/JusJustMe/Justbot-/master/blacklists/NSFWlist.json',
-                OP: 'https://rawgit.com/JusJustMe/Justbot-/master/blacklists/OPlist.json',
-                BANNED: 'https://rawgit.com/JusJustMe/Justbot-/master/blacklists/BANNEDlist.json'
+                NSFW: 'https://rawgit.com/JusJustMe/Justbot/master/blacklists/NSFWlist.json',
+                OP: 'https://rawgit.com/JusJustMe/Justbot/master/blacklists/OPlist.json',
+                BANNED: 'https://rawgit.com/JusJustMe/Justbot/master/blacklists/BANNEDlist.json'
             }
         },
         room: {
