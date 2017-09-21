@@ -251,27 +251,27 @@
         name: 'basicBot',
         loggedInID: null,
         scriptLink: 'https://rawgit.com/basicBot/source/master/basicBot.js',
-        cmdLink: 'http://git.io/245Ppg',
+        cmdLink: 'https://git.io/v5j0c',
         chatLink: 'https://rawgit.com/basicBot/source/master/lang/en.json',
         chat: null,
         loadChat: loadChat,
         retrieveSettings: retrieveSettings,
         retrieveFromStorage: retrieveFromStorage,
         settings: {
-            botName: 'basicBot',
+            botName: 'justbot',
             language: 'english',
             chatLink: 'https://rawgit.com/basicBot/source/master/lang/en.json',
-            scriptLink: 'https://rawgit.com/basicBot/source/master/basicBot.js',
+            scriptLink: 'https://rawgit.com/JusJustMe/Justbot-/master/basicBot.js',
             roomLock: false, // Requires an extension to re-load the script
             startupCap: 1, // 1-200
             startupVolume: 0, // 0-100
-            startupEmoji: false, // true or false
+            startupEmoji: true, // true or false
             autowoot: true,
             autoskip: false,
             smartSkip: true,
             cmdDeletion: true,
             maximumAfk: 120,
-            afkRemoval: true,
+            afkRemoval: false,
             maximumDc: 60,
             bouncerPlus: true,
             blacklistEnabled: true,
@@ -280,17 +280,17 @@
             maximumLocktime: 10,
             cycleGuard: true,
             maximumCycletime: 10,
-            voteSkip: false,
-            voteSkipLimit: 10,
-            historySkip: false,
+            voteSkip: true,
+            voteSkipLimit: 3,
+            historySkip: true,
             timeGuard: true,
-            maximumSongLength: 10,
+            maximumSongLength: 7,
             autodisable: false,
             commandCooldown: 30,
             usercommandsEnabled: true,
             thorCommand: false,
             thorCooldown: 10,
-            skipPosition: 3,
+            skipPosition: 1,
             skipReasons: [
                 ['theme', 'This song does not fit the room theme. '],
                 ['op', 'This song is on the OP list. '],
@@ -303,9 +303,9 @@
             afkpositionCheck: 15,
             afkRankCheck: 'ambassador',
             motdEnabled: false,
-            motdInterval: 5,
-            motd: 'Temporary Message of the Day',
-            filterChat: true,
+            motdInterval: 8,
+            motd: "I hope that everybody have a good day! ;3 Don't forgot follow the rules! http://imgur.com/a/BN2UC Don't forgot check !commands. We are recommending https://rcs.radiant.dj/ with our rcs plug theme! ;3", // p3 is better https://plugcubed.net/
+            filterChat: false,
             etaRestriction: false,
             welcome: true,
             opLink: null,
@@ -314,14 +314,20 @@
             fbLink: null,
             youtubeLink: null,
             website: null,
-            intervalMessages: [],
+            intervalMessages: [
+                "I hope that everybody have a good day! ;3 Don't forgot follow the rules! http://imgur.com/a/BN2UC Don't forgot check !commands. We are recommending https://rcs.radiant.dj/ with our rcs plug theme! ;3",
+                "I hope that everybody have a good day! ;3",
+                "Don't forgot follow the rules! https://imgur.com/a/rK9KP",
+                "Don't forgot check !commands.",
+                "We are recommending https://rcs.radiant.dj/ with our rcs plug theme! ;3" // p3 is better https://plugcubed.net/
+            ],
             messageInterval: 5,
-            songstats: true,
+            songstats: false,
             commandLiteral: '!',
             blacklists: {
-                NSFW: 'https://rawgit.com/basicBot/custom/master/blacklists/NSFWlist.json',
-                OP: 'https://rawgit.com/basicBot/custom/master/blacklists/OPlist.json',
-                BANNED: 'https://rawgit.com/basicBot/custom/master/blacklists/BANNEDlist.json'
+                NSFW: 'https://rawgit.com/JusJustMe/Justbot-/master/blacklists/NSFWlist.json',
+                OP: 'https://rawgit.com/JusJustMe/Justbot-/master/blacklists/OPlist.json',
+                BANNED: 'https://rawgit.com/JusJustMe/Justbot-/master/blacklists/BANNEDlist.json'
             }
         },
         room: {
@@ -2124,6 +2130,52 @@
                                     namefrom: chat.un,
                                     cookie: this.getCookie()
                                 }));
+                            }
+                        }
+                    }
+                }
+            },
+
+            hugCommand: {
+                command: 'hug',
+                rank: 'user',
+                type: 'startsWith',
+                getHug: function() {
+                    var hugs = [
+                        "hugs you",
+                        "hugs you and says: “I l-love you >//.//<”",
+                        "hugs you and starts nibbling on your ear",
+                        "hugs you so hard that for a moment your soul leaves your body",
+                        "hugs you and says: “I will never let you go”",
+                        "wants a hug",
+                        "hugs you and says: “I hope this hug makes your day brighter!”",
+                        "hugs you and says: “Stfu and hug me back”",
+                        "hugs you but suddenly yells: “Do you want be my friend? ^^”",
+                        "gives you a warm hug",
+                        "gives you a hug. But wait? Sike its a cuddle.",
+                        "gives you a bear hug",
+                        "hugs you and is never letting go again"
+                    ];
+                    return hugs[Math.floor(Math.random() * hugs.length)];
+                },
+                functionality: function(chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void(0);
+                    else {
+                        var msg = chat.message;
+
+                        var space = msg.indexOf(' ');
+                        if (space === -1) {
+                            API.sendChat('Maybe try hug someone else?');
+                            return false;
+                        } else {
+                            var name = msg.substring(space + 2);
+                            var user = basicBot.userUtilities.lookupUserName(name);
+                            if (user === false || !user.inRoom) return;
+                            if (user.username === chat.un) {
+                                return API.sendChat('Hugging yourself? Is it even possible?!');
+                            } else {
+                                return API.sendChat('@' + user.username + ', ' + chat.un + ' ' + this.getHug());
                             }
                         }
                     }

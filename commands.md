@@ -100,6 +100,7 @@
 | !ba | — | explains the Brand Ambassador rank. |
 | !commands | — | gives a link to the commands. |
 | !cookie | (@user) | give a cookie to user. |
+| !hug | @user | give a hug to user. |
 | !dclookup / !dc | — | use dclookup on yourself. |
 | !emoji | — | returns a link the emoji list. |
 | !eta | — | shows how long before you will reach the booth. |
