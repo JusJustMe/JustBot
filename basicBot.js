@@ -4188,7 +4188,7 @@
                                 } else if (rawlang == 'bg') {
                                     var language = 'Bulgarian';
                                 } else if (rawlang == 'cs') {
-                                    var language = 'Czech';;
+                                    var language = 'Czech';
                                 } else if (rawlang == 'fi') {
                                     var language = 'Finnish';
                                 } else if (rawlang == 'fr') {
