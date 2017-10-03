@@ -304,21 +304,21 @@
             afkRankCheck: 'ambassador',
             motdEnabled: false,
             motdInterval: 8,
-            motd: "I hope that everybody have a good day! ;3 Don't forgot follow the rules! http://imgur.com/a/BN2UC Don't forgot check !commands. We are recommending https://rcs.radiant.dj/ with our rcs plug theme! ;3", // p3 is better https://plugcubed.net/
+            motd: "I hope that everybody have a good day! ;3 Don't forget follow the rules! https://imgur.com/a/rK9KP Don't forget check !commands. We are recommending https://rcs.radiant.dj/ with our rcs plug theme! ;3", // p3 is better https://plugcubed.net/
             filterChat: false,
             etaRestriction: false,
             welcome: true,
             opLink: null,
-            rulesLink: null,
+            rulesLink: 'https://imgur.com/a/rK9KP',
             themeLink: null,
             fbLink: null,
             youtubeLink: null,
             website: null,
             intervalMessages: [
-                "I hope that everybody have a good day! ;3 Don't forgot follow the rules! http://imgur.com/a/BN2UC Don't forgot check !commands. We are recommending https://rcs.radiant.dj/ with our rcs plug theme! ;3",
+                "I hope that everybody have a good day! ;3 Don't forget follow the rules! http://imgur.com/a/BN2UC Don't forget check !commands. We are recommending https://rcs.radiant.dj/ with our rcs plug theme! ;3",
                 "I hope that everybody have a good day! ;3",
-                "Don't forgot follow the rules! https://imgur.com/a/rK9KP",
-                "Don't forgot check !commands.",
+                "Don't forget follow the rules! https://imgur.com/a/rK9KP",
+                "Don't forget check !commands.",
                 "We are recommending https://rcs.radiant.dj/ with our rcs plug theme! ;3" // p3 is better https://plugcubed.net/
             ],
             messageInterval: 5,
